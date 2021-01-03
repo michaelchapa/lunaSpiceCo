@@ -10,6 +10,9 @@ function Cart( { history }) {
     return (
         <div>
             <h1>Cart</h1>
+            <span>Items in Cart: 0</span><br />
+            <span>Total Price: 0</span><br />
+
             <button onClick = {() => goto(0)}>Checkout</button>
         </div>
     )
