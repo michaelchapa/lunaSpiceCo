@@ -1,12 +1,9 @@
 import Navigation from './components/Navigation';
-import Shipping from './components/Shipping';
-import Payment from './components/Payment';
 import Cart from './components/Cart';
-
-import {React} from 'react';
-import './App.css';
+import Checkout from './components/Checkout';
+import { React } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Confirmation from './components/Confirmation';
+import './App.css';
 
 function App() {
   return (
@@ -14,17 +11,11 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-          <Route exact path = "/shipping">
-            <Shipping />
-          </Route>
-          <Route exact path = "/payment">
-            <Payment />
-          </Route>
-          <Route exact path = "/confirmation">
-            <Confirmation />
-          </Route>
           <Route exact path = "/cart">
             <Cart />
+          </Route>
+          <Route exact path = "/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </Router>

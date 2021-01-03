@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 function Cart( { history }) {
     function goto(step) {
         if(step === 0)
-            history.push('/shipping');
+            history.push('/checkout');
     }
 
     return (
