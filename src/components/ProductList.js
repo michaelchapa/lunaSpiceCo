@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Product } from './Product';
+import { CartContext } from './CartContext';
 
 export default function ProductList() {
+    const [cart, setCart, totalPrice] = useContext(CartContext);
+
     const database = [
         {name: "Spice Mix A", price: 13.99, id: 1}, 
         {name: "Spice Mix B", price: 13.99, id: 2}, 
@@ -10,8 +13,8 @@ export default function ProductList() {
 
     return (
         <div>
-            {database.map(product => {
-            return <Product name = {product.name} price = {product.price} key = {product.id} />
+            {cart.map(product => {
+            return <Product name = {product.name} price = {product.price} key = {product.id} id = {product.id} />
             })}
         </div>
     )

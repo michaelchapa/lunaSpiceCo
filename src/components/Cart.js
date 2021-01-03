@@ -2,9 +2,8 @@ import React, {useContext} from 'react';
 import { withRouter } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
-function Cart( { history }) {
+function Cart({ history }) {
     const [cart, setCart, totalPrice] = useContext(CartContext);
-    // const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
 
     return (
         <div>
