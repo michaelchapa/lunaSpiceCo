@@ -1,19 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { withRouter } from 'react-router-dom';
+import { CartContext } from './CartContext';
 
 function Cart( { history }) {
-    function goto(step) {
-        if(step === 0)
-            history.push('/checkout');
-    }
+    const [cart, setCart, totalPrice] = useContext(CartContext);
+    // const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
 
     return (
         <div>
             <h1>Cart</h1>
-            <span>Items in Cart: 0</span><br />
-            <span>Total Price: 0</span><br />
+            <span>Items in Cart: {cart.length}</span><br />
+            <span>Total Price: {totalPrice}</span><br />
 
-            <button onClick = {() => goto(0)}>Checkout</button>
+            <button onClick = {() => history.push('/checkout')}>Checkout</button>
         </div>
     )
 }
