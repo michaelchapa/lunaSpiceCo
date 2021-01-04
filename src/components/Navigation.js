@@ -12,8 +12,8 @@ export default function Navigation() {
             <h1>Luna Spice Co</h1>
             <Link to = "/">Home</Link>
             <Link to = "/cart">Cart</Link>
-            <span>{itemsInCart}</span>
-            <span>{totalPrice}</span>
+            <p>{itemsInCart}</p>
+            <p>${totalPrice}</p>
         </div>
     )
 }

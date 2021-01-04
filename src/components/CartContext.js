@@ -9,7 +9,7 @@ export const CartProvider = (props) => {
         {name: "Spice Mix C", price: 10.99, id: 3, quantity: 0}
     ]);
 
-    const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
+    const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0).toFixed(2);
     const itemsInCart = cart.reduce((acc, curr) => acc + curr.quantity, 0);
 
     return (

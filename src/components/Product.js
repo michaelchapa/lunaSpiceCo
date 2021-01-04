@@ -15,9 +15,7 @@ export const Product = (props) => {
                 return {'name': product.name, 'price': product.price, 
                         'id': product.id, 'quantity': product.quantity - 1};
             }
-            else{
-                return product;
-            }
+            return product;
         }));
     }
 
@@ -27,10 +25,12 @@ export const Product = (props) => {
                 return {'name': product.name, 'price': product.price, 
                         'id': product.id, 'quantity': product.quantity + 1};
             }
-            else{
-                return product;
-            }
+            return product;
         }));
+    }
+
+    const addToCart = () => {
+        console.log('TODO: Product.addToCart')
     }
 
     return(
@@ -40,6 +40,7 @@ export const Product = (props) => {
             <button onClick = {subtractOne}>-</button>
             <p>{cart[productID].quantity}</p>
             <button onClick = {addOne}>+</button>
+            <button onClick = {addToCart}>Add to Cart</button>
             <hr />
         </div>
     )
