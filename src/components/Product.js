@@ -6,26 +6,40 @@ export const Product = (props) => {
     const productID = props.id - 1
 
     const subtractOne = () => {
-        console.log("subtracted 1");
-        setCart((cart) => {
-            // TODO
-        })
+        // Validate against negative Quantity
+        if(cart[productID].quantity <= 0)
+            return
+
+        setCart(cart.map((product) => {
+            if(product.id === props.id){
+                return {'name': product.name, 'price': product.price, 
+                        'id': product.id, 'quantity': product.quantity - 1};
+            }
+            else{
+                return product;
+            }
+        }));
     }
 
     const addOne = () => {
-        // const product = {name: props.name, price: props.price, id: props.id}
-        // setCart(curr => [...curr, product]);
-        console.log("added 1")
+        setCart(cart.map((product) => {
+            if(product.id === props.id){
+                return {'name': product.name, 'price': product.price, 
+                        'id': product.id, 'quantity': product.quantity + 1};
+            }
+            else{
+                return product;
+            }
+        }));
     }
 
     return(
         <div>
             <h3>{props.name}</h3>
             <h4>{props.price}</h4>
-            <button onClick = {subtractOne}>-1</button>
+            <button onClick = {subtractOne}>-</button>
             <p>{cart[productID].quantity}</p>
-            <p>ID: {props.id}</p>
-            <button onClick = {addOne}>+1</button>
+            <button onClick = {addOne}>+</button>
             <hr />
         </div>
     )

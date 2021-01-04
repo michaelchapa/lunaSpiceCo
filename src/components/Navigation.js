@@ -5,14 +5,14 @@ import { Spring } from 'react-spring/renderprops';
 // import {useSpring, animated} from 'react-spring';
 
 export default function Navigation() {
-    const [cart, setCart, totalPrice] = useContext(CartContext);
+    const [cart, setCart, totalPrice, itemsInCart] = useContext(CartContext);
 
     return (
         <div>
             <h1>Luna Spice Co</h1>
             <Link to = "/">Home</Link>
             <Link to = "/cart">Cart</Link>
-            <span>{cart.length}</span>
+            <span>{itemsInCart}</span>
             <span>{totalPrice}</span>
         </div>
     )

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
 function Cart({ history }) {
-    const [cart, setCart, totalPrice] = useContext(CartContext);
+    const [cart, setCart, totalPrice, itemsInCart] = useContext(CartContext);
 
     return (
         <div>
