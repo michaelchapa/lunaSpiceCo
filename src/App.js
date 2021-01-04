@@ -1,33 +1,31 @@
 import Navigation from './components/Navigation';
-import Shipping from './components/Shipping';
-import Payment from './components/Payment';
 import Cart from './components/Cart';
-
-import {React} from 'react';
-import './App.css';
+import Checkout from './components/Checkout';
+import Homepage from './components/Homepage';
+import { CartProvider } from './components/CartContext';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Confirmation from './components/Confirmation';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <CartProvider>
       <Router>
         <Navigation />
         <Switch>
-          <Route exact path = "/shipping">
-            <Shipping />
-          </Route>
-          <Route exact path = "/payment">
-            <Payment />
-          </Route>
-          <Route exact path = "/confirmation">
-            <Confirmation />
+          <Route exact path = "/">
+            <Homepage />
           </Route>
           <Route exact path = "/cart">
             <Cart />
           </Route>
+          <Route exact path = "/checkout">
+            <Checkout />
+          </Route>
         </Switch>
       </Router>
+      </CartProvider>
     </div>
   );
 }

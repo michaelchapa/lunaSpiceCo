@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from './CartContext';
 import { Spring } from 'react-spring/renderprops';
 // import {useSpring, animated} from 'react-spring';
 
 export default function Navigation() {
-    // calcualte cart total and add it to the cart
+    const [cart, setCart, totalPrice, itemsInCart] = useContext(CartContext);
+
     return (
         <div>
             <h1>Luna Spice Co</h1>
             <Link to = "/">Home</Link>
             <Link to = "/cart">Cart</Link>
+            <span>{itemsInCart}</span>
+            <span>{totalPrice}</span>
         </div>
     )
 }
