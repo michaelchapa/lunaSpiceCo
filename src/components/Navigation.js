@@ -5,15 +5,16 @@ import { Spring } from 'react-spring/renderprops';
 // import {useSpring, animated} from 'react-spring';
 
 export default function Navigation() {
+    // eslint-disable-next-line
     const [cart, setCart, totalPrice, itemsInCart] = useContext(CartContext);
 
     return (
         <div>
             <h1>Luna Spice Co</h1>
             <Link to = "/">Home</Link>
+            <Link to = "/about">About</Link>
             <Link to = "/cart">Cart</Link>
-            <p>{itemsInCart}</p>
-            <p>${totalPrice}</p>
+            <span>{itemsInCart}</span>
         </div>
     )
 }

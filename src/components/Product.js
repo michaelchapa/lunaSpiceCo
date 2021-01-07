@@ -37,9 +37,9 @@ export const Product = (props) => {
         <div>
             <h3>{props.name}</h3>
             <h4>{props.price}</h4>
-            <button onClick = {subtractOne}>-</button>
-            <p>{cart[productID].quantity}</p>
-            <button onClick = {addOne}>+</button>
+            <button className = "quantity-button" onClick = {subtractOne}>-</button>
+            <span>{cart[productID].quantity}</span>
+            <button className = "quantity-button" onClick = {addOne}>+</button>
             <button onClick = {addToCart}>Add to Cart</button>
             <hr />
         </div>

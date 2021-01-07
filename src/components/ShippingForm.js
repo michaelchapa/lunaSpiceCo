@@ -1,11 +1,52 @@
 import React from 'react';
-import { Formik, useField } from 'formik';
+import { Formik, useField, Form} from 'formik';
 import * as Yup from 'yup';
+import { Styles } from './Styles';
+
+const CustomTextInput = ({label, ...props}) => {
+    const [field, meta, helpers] = useField(props);
+    return (
+        <>
+        <label htmlFor = {props.id || props.name}>{label}</label>
+            <input className = "shipping-text-input" {...field} {...props} />
+            {meta.touched && meta.error ? (
+                <div className = "error">{meta.error}</div>
+            ): null}
+        </>
+    )
+}
+
+const CustomCheckbox = ({children, ...props}) => {
+    const [field, meta, helpers] = useField(props, 'checkbox');
+    return (
+        <>
+        <label className = "checkbox">
+            <input type = "checkbox" {...field} {...props} />
+            {children}
+        </label>
+        {meta.touched && meta.error ? (
+            <div className = "error">{meta.error}</div>
+        ): null}
+        </>
+    )
+}
+
+const CustomSelect = ({label, ...props}) => {
+    const [field, meta, helpers] = useField(props);
+    return (
+        <>
+        <label htmlFor = {props.id || props.name}>{label}</label>
+            <select className = "shipping-select-input" {...field} {...props} />
+            {meta.touched && meta.error ? (
+                <div className = "error">{meta.error}</div>
+            ): null}
+        </>
+    )
+}
 
 function ShippingForm() {
-
     return (
-        <div>
+        <Styles>
             <Formik
                 initialValues = {{
                     name: '',
@@ -58,9 +99,16 @@ function ShippingForm() {
                     }, 3000)
                 }}
             >
+                {props => (
+                    <Form>
+                        <h1>Shipping</h1>
+                        <CustomTextInput label = "Name" name = "name" type = "text" placeholder = "Frank" />
+                        <CustomTextInput label = "Email" name = "email" type = "email" placeholder = "frankdeTank@cuk.com" />
+                    </Form>
+                )}
 
             </Formik>
-        </div>
+        </Styles>
     )
 }
 

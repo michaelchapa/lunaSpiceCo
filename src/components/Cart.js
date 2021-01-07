@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
 function Cart({ history }) {
+    // eslint-disable-next-line
     const [cart, setCart, totalPrice, itemsInCart] = useContext(CartContext);
 
     return (

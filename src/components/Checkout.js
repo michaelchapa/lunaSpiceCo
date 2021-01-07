@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import ShippingForm from './ShippingForm'
 
+
 function Checkout({ history }) {
     function goto(step) { 
         if(step === 0) {
