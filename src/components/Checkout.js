@@ -13,8 +13,7 @@ function Checkout({ history }) {
     return (
         <div>
             <h1>Checkout</h1>
-            <p>1. Show Contents of Order</p>
-            <p>2. Collect Shipping information</p>
+            <p>1. Display Cart Contents</p>
             <ShippingForm />
             <p>3. Calculate Shipping</p>
             <p>4. Collect Payment Information</p>

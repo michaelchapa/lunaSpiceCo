@@ -84,9 +84,8 @@ function ShippingForm() {
                         .required('Required'),
                     zipcode: Yup.number()
                         .min(5, 'Must be 5 digits')
-                        .max(5, 'Must be 5 digits')
                         .required('Required'),
-                    accepted: Yup.boolean()
+                    acceptedTerms: Yup.boolean()
                         .oneOf([true], 'You must accept the Terms & Conditions')
                         .required('Required')
                 })}
@@ -102,8 +101,17 @@ function ShippingForm() {
                 {props => (
                     <Form>
                         <h1>Shipping</h1>
-                        <CustomTextInput label = "Name" name = "name" type = "text" placeholder = "Frank" />
-                        <CustomTextInput label = "Email" name = "email" type = "email" placeholder = "frankdeTank@cuk.com" />
+                        <CustomTextInput label = "Name" name = "name" type = "text" />
+                        <CustomTextInput label = "Email" name = "email" type = "email" />
+                        <CustomTextInput label = "Address 1" name = "address1" type = "text" />
+                        <CustomTextInput label = "Adddress 2" name = "address2" type = "text" />
+                        <CustomTextInput label = "City" name = "city" type = "text" />
+                        <CustomTextInput label = "State" name = "state" type = "text" />
+                        <CustomTextInput label = "Zipcode" name = "zipcode" type = "text" />
+                        <CustomCheckbox name = "acceptedTerms">
+                            I accept the Terms and Conditions
+                        </CustomCheckbox>
+                        <button type = "submit">{props.isSubmitting ? 'Loading...' : 'Submit'}</button>
                     </Form>
                 )}
 
