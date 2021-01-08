@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
+import { useSpring, animated } from 'react-spring'; 
 
 export const Product = (props) => {
     const [cart, setCart] = useContext(CartContext);
-    const productID = props.id - 1
+    const styleProps = useSpring({opacity: 1, from: {opacity: 0}})
 
-    const subtractOne = () => {
+
+    const subQuantity = () => {
         // Validate against negative Quantity
-        if(cart[productID].quantity <= 0)
+        if(cart[props.id - 1].quantity <= 0)
             return
 
         setCart(cart.map((product) => {
@@ -19,7 +21,7 @@ export const Product = (props) => {
         }));
     }
 
-    const addOne = () => {
+    const addQuantity = () => {
         setCart(cart.map((product) => {
             if(product.id === props.id){
                 return {'name': product.name, 'price': product.price, 
@@ -34,14 +36,14 @@ export const Product = (props) => {
     }
 
     return(
-        <div>
-            <h3>{props.name}</h3>
-            <h4>{props.price}</h4>
-            <button className = "quantity-button" onClick = {subtractOne}>-</button>
-            <span>{cart[productID].quantity}</span>
-            <button className = "quantity-button" onClick = {addOne}>+</button>
+        <animated.div style = {styleProps}>
+            <h2>{props.name}</h2>
+            <h3>{props.price}</h3>
+            <button className = "quantity-button" onClick = {subQuantity}>-</button>
+            <span>{cart[props.id - 1].quantity}</span>
+            <button className = "quantity-button" onClick = {addQuantity}>+</button>
             <button onClick = {addToCart}>Add to Cart</button>
             <hr />
-        </div>
+        </animated.div>
     )
 }
