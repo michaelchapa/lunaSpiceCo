@@ -4,18 +4,19 @@ import { useSpring, animated } from 'react-spring';
 
 export const Product = (props) => {
     const [cart, setCart] = useContext(CartContext);
-    const styleProps = useSpring({opacity: 1, from: {opacity: 0}})
-
+    const springStyle = useSpring({
+        opacity: 1, from: {opacity: 0}
+    });
 
     const subQuantity = () => {
-        // Validate against negative Quantity
         if(cart[props.id - 1].quantity <= 0)
             return
 
         setCart(cart.map((product) => {
             if(product.id === props.id){
-                return {'name': product.name, 'price': product.price, 
-                        'id': product.id, 'quantity': product.quantity - 1};
+                return {'id': product.id, 'name': product.name, 
+                        'price': product.price, 'quantity': product.quantity - 1, 
+                        'image': product.image};
             }
             return product;
         }));
@@ -24,8 +25,9 @@ export const Product = (props) => {
     const addQuantity = () => {
         setCart(cart.map((product) => {
             if(product.id === props.id){
-                return {'name': product.name, 'price': product.price, 
-                        'id': product.id, 'quantity': product.quantity + 1};
+                return {'id': product.id, 'name': product.name, 
+                        'price': product.price, 'quantity': product.quantity + 1, 
+                        'image': product.image};
             }
             return product;
         }));
@@ -36,9 +38,10 @@ export const Product = (props) => {
     }
 
     return(
-        <animated.div style = {styleProps}>
+        <animated.div style = {springStyle}>
             <h2>{props.name}</h2>
             <h3>{props.price}</h3>
+            <img style = {{width: "40%", height: "auto", margin: "auto"}} src = {cart[props.id - 1].image} />
             <button className = "quantity-button" onClick = {subQuantity}>-</button>
             <span>{cart[props.id - 1].quantity}</span>
             <button className = "quantity-button" onClick = {addQuantity}>+</button>
