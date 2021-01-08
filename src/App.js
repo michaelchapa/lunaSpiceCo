@@ -1,10 +1,11 @@
-import Navigation from './components/Navigation';
+import About from './components/About';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Homepage from './components/Homepage';
+import Navigation from './components/Navigation';
 import { CartProvider } from './components/CartContext';
-import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
 import './App.css';
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route exact path = "/checkout">
             <Checkout />
+          </Route>
+          <Route exact path = "/about">
+            <About />
           </Route>
         </Switch>
       </Router>
