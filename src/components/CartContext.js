@@ -1,18 +1,14 @@
 import React from 'react';
-import photo1 from '../hotCheetos.jpeg';
-import photo2 from '../spiceMix2.png';
 
 export const CartContext = React.createContext();
 
 export const CartProvider = (props) => {
-    const [cart, setCart] = React.useState([
-        {id: 1, name: "Spice Mix A", price: 13.99, quantity: 0, image: photo1}, 
-        {id: 2, name: "Spice Mix C", price: 10.99, id: 2, quantity: 0, image: photo2}
-    ]);
+    const [cart, setCart] = React.useState([]);
 
-    const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0).toFixed(2);
-    const itemsInCart = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+    // const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0).toFixed(2);
+    // const itemsInCart = cart.reduce((acc, curr) => acc + curr.quantity, 0);
 
+    /*
     const cartContents = 
     <table style = {{margin: "auto"}}>
         <thead>
@@ -32,9 +28,10 @@ export const CartProvider = (props) => {
         })}
         </tbody>
     </table>;
+    */
 
     return (
-        <CartContext.Provider value = {[cart, setCart, totalPrice, itemsInCart, cartContents]}>
+        <CartContext.Provider value = {[cart, setCart]}>
             {props.children}
         </CartContext.Provider>
     )

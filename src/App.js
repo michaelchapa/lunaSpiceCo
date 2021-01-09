@@ -1,9 +1,10 @@
 import About from './components/About';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
-import Homepage from './components/Homepage';
+import Homepage from './components/Homepage/Homepage';
 import Navigation from './components/Navigation';
 import { CartProvider } from './components/CartContext';
+import { InventoryProvider } from './components/InventoryContext';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React from 'react';
 import './App.css';
@@ -11,6 +12,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <InventoryProvider>
       <CartProvider>
       <Router>
         <Navigation />
@@ -30,6 +32,7 @@ function App() {
         </Switch>
       </Router>
       </CartProvider>
+      </InventoryProvider>
     </div>
   );
 }

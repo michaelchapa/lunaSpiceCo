@@ -3,17 +3,17 @@ import { withRouter } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
 function Cart({ history }) {
-    // eslint-disable-next-line
-    const [cart, setCart, totalPrice, itemsInCart, cartContents] = useContext(CartContext);
+    const [cart, setCart] = useContext(CartContext);
 
     return (
         <div>
             <h1>Cart</h1>
-            {cartContents}
-            <span>Total: ${totalPrice}</span><br />
+            <span>1. Cart Contents</span>
+            <span>Total: $ totalPrice</span>
+            <span>Quantity: ?</span>
             <button onClick = {() => history.push('/checkout')}>Checkout</button>
         </div>
-    )
+    );
 }
 
 export default withRouter(Cart);

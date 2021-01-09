@@ -1,0 +1,36 @@
+.productImage {
+    display: block;
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+
+.description {
+    display: block;
+    width: 60%;
+    margin: auto;
+    padding: 1em;
+}
+
+#product1 {
+    background-color: #ff3bff;
+}
+
+#product1Header {
+    background-color: chartreuse;
+    color: red;
+}
+
+#product2Header {
+    background-color: chartreuse;
+    color: red; 
+}
+
+#product2 {
+    background-color: #ff5e00;
+}
+
+#addToCartButton {
+    background-color: red;
+    color: chartreuse;
+}

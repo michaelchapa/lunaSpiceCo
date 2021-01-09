@@ -5,7 +5,7 @@ import { CartContext } from './CartContext'
 
 
 function Checkout({ history }) {
-    const [cart, setCart, totalPrice, itemsInCart, cartContents] = useContext(CartContext);
+    const [cart, setCart] = useContext(CartContext);
 
     function goto(step) { 
         if(step === 0) {
@@ -16,8 +16,8 @@ function Checkout({ history }) {
     return (
         <div>
             <h1>Checkout</h1>
-            {cartContents}
-            <span>Total: ${totalPrice}</span>
+            <span>1. Cart Contents</span>
+            <span>2. Total: $</span>
             <ShippingForm />
             <p>3. Calculate Shipping</p>
             <p>4. Collect Payment Information</p>
