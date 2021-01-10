@@ -38,8 +38,8 @@ export default function Homepage() {
                 Sed eget purus nec lorem elementum luctus id non risus. 
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
-            <button id = {styles.addToCartButton} onClick = {handleOpenCart} 
-                    value = {0}>Add to Cart</button>
+            <a id = {styles.addToCartButton} onClick = {handleOpenCart} 
+                    value = {0}>Add to Cart</a>
         </div>
         <div>
             <img className = {styles.productImage} src = {inventory[1].image}
@@ -52,8 +52,8 @@ export default function Homepage() {
                 Sed eget purus nec lorem elementum luctus id non risus. 
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
-            <button id = {styles.addToCartButton} onClick = {handleOpenCart} 
-                    value = {1}>Add to Cart</button>
+            <a id = {styles.addToCartButton} onClick = {handleOpenCart} 
+                    value = {1}>Add to Cart</a>
         </div>
         </>
     )
