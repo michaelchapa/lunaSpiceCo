@@ -20,7 +20,7 @@ export default function Homepage() {
 
     return (
         <>
-        <div id = "sidePanel" className = "sidePanel">
+        <div id = "sidePanel" className = {styles.sidePanel}>
             <a href = "#" className = "closebtn" onClick = {closeNav}>X</a>
             <a href = "#">Banana</a>
             <a href = "#">Pizza</a>

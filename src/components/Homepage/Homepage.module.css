@@ -3,11 +3,12 @@
     width: 50%;
     height: auto;
     margin: auto;
+    border-radius: 50%;
 }
 
 .description {
     display: block; 
-    width: 50%;
+    width: 60%;
     padding: 0.5em 3em; 
     border: 0.16em solid #FFFFFF;
     margin: 1em auto 1em;
@@ -65,6 +66,7 @@
     .description{
         display: block;
         margin: 0.4em auto;
+        width: 100%;
     }
 }
 
@@ -77,5 +79,51 @@ h1 {
     font-size: 4.5em;
     letter-spacing: -1px;
     background-color: black;
-    color: white;
+    color: rgb(255, 244, 253);
+  }
+
+  .sidePanel {
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      height: 250px;
+      top: 0;
+      left: 0;
+      background-color: chartreuse;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+  }
+
+  .sidePanel a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+  }
+
+  .sidepanel a:hover {
+      color: #f1f1f1;
+  }
+
+  .sidepanel .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+  }
+
+  .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+  }
+
+  .openbtn:hover {
+      background-color: #444;
   }
