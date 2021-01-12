@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Product(props) {
-
     return(
         <>
         <span className = "product-name">{props.name}</span>

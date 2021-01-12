@@ -1,5 +1,4 @@
 import React from 'react';
-import photo1 from '../hotCheetos.jpeg';
 import photo2 from '../spiceMix2.png';
 
 export const InventoryContext = React.createContext();

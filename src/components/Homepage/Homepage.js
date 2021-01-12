@@ -20,12 +20,6 @@ export default function Homepage() {
 
     return (
         <>
-        <div id = "sidePanel" className = {styles.sidePanel}>
-            <a href = "#" className = "closebtn" onClick = {closeNav}>X</a>
-            <a href = "#">Banana</a>
-            <a href = "#">Pizza</a>
-            <a href = "#">Lotus</a>
-        </div>
         <h1>Welcome to Luna Spice Co!</h1>
         <div>
             <img className = {styles.productImage} src = {inventory[0].image} 

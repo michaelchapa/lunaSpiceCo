@@ -1,12 +1,15 @@
-import About from './components/About';
-import Cart from './components/Cart';
-import Checkout from './components/Checkout';
-import Homepage from './components/Homepage/Homepage';
-import Navigation from './components/Navigation';
-import { CartProvider } from './components/CartContext';
-import { InventoryProvider } from './components/InventoryContext';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React from 'react';
+import About from './components/About'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Cart from './components/Cart'
+import { CartProvider } from './components/CartContext'
+import Checkout from './components/Checkout'
+import Homepage from './components/Homepage/Homepage'
+import { InventoryProvider } from './components/InventoryContext'
+import Navigation from './components/Navigation/Navigation'
+
+
+
+import React from 'react'
 import './App.css';
 
 function App() {
