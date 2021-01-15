@@ -1,9 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { CartContext } from './CartContext';
 
 function Cart({ history }) {
-    const [cart, setCart] = useContext(CartContext);
 
     return (
         <div>

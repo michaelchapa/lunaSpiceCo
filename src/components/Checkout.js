@@ -1,11 +1,8 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
 import ShippingForm from './ShippingForm'
-import { CartContext } from './CartContext'
-
 
 function Checkout({ history }) {
-    const [cart, setCart] = useContext(CartContext);
 
     function goto(step) { 
         if(step === 0) {

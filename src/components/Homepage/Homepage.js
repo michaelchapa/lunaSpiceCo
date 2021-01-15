@@ -3,20 +3,12 @@ import { InventoryContext } from '../InventoryContext'
 import styles from './Homepage.module.css'
 
 export default function Homepage() {
-    const [inventory, setInventory] = useContext(InventoryContext);
+    const [inventory] = useContext(InventoryContext);
 
     function handleOpenCart(e) {
         e.preventDefault();
-        console.log("Open mini-cart with product ID: " + e.target.value);
+        console.log("Value: " + e.target.value);
     }
-
-    function closeNav(e) {
-        e.preventDefault();
-        console.log("Close Nav");
-    }
-
-    const featureProduct2 = 
-        <h2>{inventory[1].name}</h2>;
 
     return (
         <>
@@ -32,8 +24,8 @@ export default function Homepage() {
                 Sed eget purus nec lorem elementum luctus id non risus. 
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
-            <a id = {styles.addToCartButton} onClick = {handleOpenCart} 
-                    value = {0}>Add to Cart</a>
+            <a id = {styles.addToCartButton} value = {inventory[0].id} 
+               onClick = {handleOpenCart} href = "#" >Add to Cart</a>
         </div>
         <div>
             <img className = {styles.productImage} src = {inventory[1].image}
@@ -47,7 +39,7 @@ export default function Homepage() {
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
             <a id = {styles.addToCartButton} onClick = {handleOpenCart} 
-                    value = {1}>Add to Cart</a>
+                    value = {inventory[1].id} href = "#">Add to Cart</a>
         </div>
         </>
     )

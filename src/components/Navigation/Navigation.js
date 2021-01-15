@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import './Navigation.css'
-import { IconContext } from 'react-icons'
 import { CartContext } from '../CartContext'
 import * as FaIcons from 'react-icons/fi'
 
@@ -20,8 +19,8 @@ function Navigation( {history} ) {
         <>
             
                 <div className = "navbar">
-                    <Link to = "/">Home</Link>
-                    <Link to = "/about">About</Link>
+                    <Link to = "/" className = "nav-link">Home</Link>
+                    <Link to = "/about" className = "nav-link">About</Link>
                     <Link to = "#" className = "cart-icon">
                         <FaIcons.FiShoppingCart onClick = {showSidebar} />
                     </Link>
