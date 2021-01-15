@@ -18,24 +18,23 @@ function Navigation( {history} ) {
 
     return (
         <>
-            <IconContext.Provider value = {{ color: '#ff29d1' }}>
+            
                 <div className = "navbar">
                     <Link to = "/">Home</Link>
                     <Link to = "/about">About</Link>
-                    <Link to = "#" className = "menu-bars">
+                    <Link to = "#" className = "cart-icon">
                         <FaIcons.FiShoppingCart onClick = {showSidebar} />
                     </Link>
                     <nav className = {sidebar ? 'nav-menu active' : 'nav-menu'}>
                         <ul className = 'nav-menu-items'>
                             <li className = 'navbar-toggle'>
-                                <Link to = "#" className = 'menu-bars'>
+                                <Link to = "#" className = 'close-icon'>
                                     <FaIcons.FiX onClick = {showSidebar} />
                                 </Link>
                             </li>
                         </ul>
                     </nav>
                 </div>
-            </IconContext.Provider>
         </>
     )
 }

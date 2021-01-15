@@ -25,18 +25,14 @@
 #product1Header {
     background-color: chartreuse;
     color: red;
-    margin: 0 35em 0.3em 0;
     padding: 0.5em 2em;
-    text-align: left;
     font-size: 1.5rem;
 }
 
 #product2Header {
     background-color: chartreuse;
     color: red; 
-    margin: 0 0 0.3em 30em;
     padding: 0.5em 2em;
-    text-align: right;
     font-size: 1.5rem;
 }
 

@@ -20,7 +20,7 @@ export default function Homepage() {
 
     return (
         <>
-        <h1>Welcome to Luna Spice Co!</h1>
+        <h1>Luna Spice Co.</h1>
         <div>
             <img className = {styles.productImage} src = {inventory[0].image} 
                  alt = {inventory[0].name} />
