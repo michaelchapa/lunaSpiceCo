@@ -1,15 +1,12 @@
-import About from './components/About'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Cart from './components/Cart'
 import { CartProvider } from './components/CartContext'
+import { InventoryProvider } from './components/InventoryContext'
+import About from './components/About'
+import Cart from './components/Cart'
 import Checkout from './components/Checkout'
 import Homepage from './components/Homepage/Homepage'
-import { InventoryProvider } from './components/InventoryContext'
 import Navigation from './components/Navigation/Navigation'
-
-
-
-import React from 'react'
 import './App.css';
 
 function App() {
@@ -20,18 +17,10 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-          <Route exact path = "/">
-            <Homepage />
-          </Route>
-          <Route exact path = "/cart">
-            <Cart />
-          </Route>
-          <Route exact path = "/checkout">
-            <Checkout />
-          </Route>
-          <Route exact path = "/about">
-            <About />
-          </Route>
+          <Route exact path = "/" component = {Homepage} />
+          <Route exact path = "/cart" component = {Cart} />
+          <Route exact path = "/checkout" component = {Checkout} />
+          <Route exact path = "/about" component = {About} />
         </Switch>
       </Router>
       </CartProvider>
