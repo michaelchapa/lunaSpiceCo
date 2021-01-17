@@ -111,7 +111,7 @@ function ShippingForm() {
                         <CustomCheckbox name = "acceptedTerms">
                             I accept the Terms and Conditions
                         </CustomCheckbox>
-                        <button type = "submit">{props.isSubmitting ? 'Loading...' : 'Submit'}</button>
+                        <button type = "submit">{props.isSubmitting ? 'Calculating...' : 'Calculate Shipping'}</button>
                     </Form>
                 )}
 
