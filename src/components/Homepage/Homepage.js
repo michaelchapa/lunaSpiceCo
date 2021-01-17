@@ -7,12 +7,24 @@ export default function Homepage() {
     const [inventory] = useContext(InventoryContext);
     const [cart, setCart, sidebar, setSidebar, showSidebar] = useContext(CartContext);
 
-    function handleAddToCart(e) {
+    function AddItemToCart(e) {
         e.preventDefault();
+
         showSidebar();
-        let productToAdd = inventory[e.target.value];
-        productToAdd.quantity = 1;
-        setCart([...cart, productToAdd]);
+
+        const productID = e.target.value;
+        if(cart.has(productID)){
+            // console.log(cart.get(productID))
+            let item = cart.get(productID);
+            item.quantity += 1;
+            setCart(cart => new Map(cart).set(productID, item));
+            console.log(cart);
+        } else {
+            let productToAdd = inventory[productID];
+            productToAdd.quantity = 1;
+            setCart(cart => new Map([...cart, [productID, productToAdd]]));
+            console.log(cart);
+        }
     }  
 
     return (
@@ -30,7 +42,7 @@ export default function Homepage() {
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
             <button id = {styles.addToCartButton} value = {inventory[0].id}
-               onClick = {handleAddToCart} href = "#" >Add to Cart</button>
+                onClick = {AddItemToCart} href = "#">Add to Cart</button>
         </div>
         <div>
             <img className = {styles.productImage} src = {inventory[1].image}
@@ -43,9 +55,9 @@ export default function Homepage() {
                 Sed eget purus nec lorem elementum luctus id non risus. 
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
-            <button id = {styles.addToCartButton} onClick = {handleAddToCart} 
-                    value = {inventory[1].id} href = "#">Add to Cart</button>
+            <button id = {styles.addToCartButton} value = {inventory[1].id}
+                onClick = {AddItemToCart} href = "#">Add to Cart</button>
         </div>
         </>
-    )
+    );
 }

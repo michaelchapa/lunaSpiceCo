@@ -8,11 +8,6 @@ import Cart from '../Cart'
 function Navigation( {history} ) {
     const [cart, setCart, sidebar, setSidebar, showSidebar] = useContext(CartContext);
 
-    function toCheckout(){
-        history.push('/checkout');
-        showSidebar();
-    }
-
     return (
         <>  
             <div className = "navbar">
@@ -29,7 +24,7 @@ function Navigation( {history} ) {
                             </Link>
                         </li>
                     </ul>
-                    <Cart />
+                    
                 </nav>
             </div>
         </>
