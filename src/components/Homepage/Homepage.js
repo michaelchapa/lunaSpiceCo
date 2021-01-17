@@ -1,14 +1,19 @@
 import React, { useContext } from 'react'
+import { CartContext } from '../CartContext'
 import { InventoryContext } from '../InventoryContext'
 import styles from './Homepage.module.css'
 
 export default function Homepage() {
     const [inventory] = useContext(InventoryContext);
+    const [cart, setCart, sidebar, setSidebar, showSidebar] = useContext(CartContext);
 
-    function handleOpenCart(e) {
+    function handleAddToCart(e) {
         e.preventDefault();
-        console.log("Value: " + e.target.value);
-    }
+        showSidebar();
+        let productToAdd = inventory[e.target.value];
+        productToAdd.quantity = 1;
+        setCart([...cart, productToAdd]);
+    }  
 
     return (
         <>
@@ -24,8 +29,8 @@ export default function Homepage() {
                 Sed eget purus nec lorem elementum luctus id non risus. 
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
-            <a id = {styles.addToCartButton} value = {inventory[0].id} 
-               onClick = {handleOpenCart} href = "#" >Add to Cart</a>
+            <button id = {styles.addToCartButton} value = {inventory[0].id}
+               onClick = {handleAddToCart} href = "#" >Add to Cart</button>
         </div>
         <div>
             <img className = {styles.productImage} src = {inventory[1].image}
@@ -38,8 +43,8 @@ export default function Homepage() {
                 Sed eget purus nec lorem elementum luctus id non risus. 
                 Sed tellus nisi, fringilla a fermentum et, rutrum et diam. 
             </span>
-            <a id = {styles.addToCartButton} onClick = {handleOpenCart} 
-                    value = {inventory[1].id} href = "#">Add to Cart</a>
+            <button id = {styles.addToCartButton} onClick = {handleAddToCart} 
+                    value = {inventory[1].id} href = "#">Add to Cart</button>
         </div>
         </>
     )
