@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import './Navigation.css'
 import { CartContext } from '../CartContext'
 import * as FaIcons from 'react-icons/fi'
-import Cart from '../Cart'
+import Cart from '../Cart/Cart'
 
 function Navigation( {history} ) {
     const [cart, setCart, sidebar, setSidebar, showSidebar] = useContext(CartContext);

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { withRouter } from 'react-router-dom'
-import { CartContext } from './CartContext'
+import { CartContext } from '../CartContext'
 import { IoMdTrash } from 'react-icons/io'
 import { ImMinus, ImPlus } from 'react-icons/im'
 
@@ -30,7 +30,7 @@ function Cart({ history }) {
                 <IoMdTrash className = "delete-button" onClick = {() => console.log("DELETE ITEM :)")} />
                 <ImMinus className = "subtract-button" onClick = {decreaseQuantity} />
                 <span className = "item-quantity">{item.quantity}</span>
-                <ImPlus className = "add-button" onClick = {increaseQuantity} />
+                <ImPlus className = "add-button" value = {12} onClick = {increaseQuantity} />
             </div>
             
 

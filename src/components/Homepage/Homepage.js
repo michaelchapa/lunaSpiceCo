@@ -5,14 +5,33 @@ import styles from './Homepage.module.css'
 
 export default function Homepage() {
     const [inventory] = useContext(InventoryContext);
+    // eslint-disable-next-line
     const [cart, setCart, sidebar, setSidebar, showSidebar] = useContext(CartContext);
 
     function handleAddToCart(e) {
         e.preventDefault();
         showSidebar();
-        let productToAdd = inventory[e.target.value];
-        productToAdd.quantity = 1;
-        setCart([...cart, productToAdd]);
+
+        let updatedCart = [];
+        let inCart = false;
+
+        for(const item of cart){
+            if(item.id == e.target.value){
+                item.quantity = item.quantity + 1;
+                updatedCart.push(item);
+                inCart = true;
+            } else {
+                updatedCart.push(item);
+            }
+        }
+
+        if(inCart){
+            setCart(updatedCart);
+        } else{
+            let productToAdd = inventory[e.target.value];
+            productToAdd.quantity = 1;
+            setCart([...cart, productToAdd]);
+        }
     }  
 
     return (

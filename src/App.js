@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { CartProvider } from './components/CartContext'
 import { InventoryProvider } from './components/InventoryContext'
 import About from './components/About'
-import Cart from './components/Cart'
+import Cart from './components/Cart/Cart'
 import Checkout from './components/Checkout'
 import Homepage from './components/Homepage/Homepage'
 import Navigation from './components/Navigation/Navigation'
