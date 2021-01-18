@@ -3,23 +3,54 @@ import { withRouter } from 'react-router-dom'
 import { CartContext } from '../CartContext'
 import { IoMdTrash } from 'react-icons/io'
 import { ImMinus, ImPlus } from 'react-icons/im'
+import './Cart.css'
+import { Link } from 'react-router-dom'
 
 function Cart({ history }) {
     const [cart, setCart] = useContext(CartContext);
 
-    function decreaseQuantity(e){
-        console.log("Decrease:");
-        console.log(e.target);
+    function decreaseQuantity(productID){
+        let updatedCart = [];
+
+        for(const item of cart){
+            if(item.id == productID){
+                item.quantity = item.quantity - 1;
+                if(item.quantity < 0)
+                    item.quantity = 0;
+
+                updatedCart.push(item);
+            } else{
+                updatedCart.push(item);
+            }
+        }
+        setCart(updatedCart);
     }
 
-    function increaseQuantity(e){
-        console.log("Increase:");
-        console.log(e.target.value);
+    function increaseQuantity(productID){
+        let updatedCart = [];
+
+        for(const item of cart){
+            if(item.id == productID){
+                item.quantity = item.quantity + 1;
+                updatedCart.push(item);
+            } else {
+                updatedCart.push(item);
+            }
+        }
+        setCart(updatedCart);
     }
 
-    function deleteItem(e){
-        console.log("Delete:");
-        console.log(e.target);
+    function deleteItem(productID){
+        let updatedCart = [];
+
+        for(const item of cart){
+            if(item.id == productID){
+                continue;
+            } else {
+                updatedCart.push(item);
+            }
+        }
+        setCart(updatedCart);
     }
 
     const cartContents = cart.map((item, index) => {
@@ -27,13 +58,17 @@ function Cart({ history }) {
             <div key = {item.id}>
                 <span className = "item-name">{item.name}</span>
                 <span className = "item-price">{item.price}</span>
-                <IoMdTrash className = "delete-button" onClick = {() => console.log("DELETE ITEM :)")} />
-                <ImMinus className = "subtract-button" onClick = {decreaseQuantity} />
+                <Link to = "#" className = "trash-icon" onClick = {() => deleteItem(item.id)}>
+                    <IoMdTrash className = "delete-button" />
+                </Link>
+                <Link to = "#" className = "subtract-icon" onClick = {() => decreaseQuantity(item.id)}>
+                    <ImMinus className = "subtract-button" />
+                </Link>
                 <span className = "item-quantity">{item.quantity}</span>
-                <ImPlus className = "add-button" value = {12} onClick = {increaseQuantity} />
+                <Link to = "#" className = "add-icon" onClick = {() => increaseQuantity(item.id)}>
+                    <ImPlus className = "add-button" />
+                </Link>
             </div>
-            
-
         );
     });
 
