@@ -6,7 +6,9 @@ import * as FaIcons from 'react-icons/fi'
 import Cart from '../Cart/Cart'
 
 function Navigation( {history} ) {
-    const [cart, setCart, sidebar, setSidebar, showSidebar] = useContext(CartContext);
+    // eslint-disable-next-line
+    const [cart, setCart, totalPrice, itemCount, cartSummary, 
+           sidebar, setSidebar, showSidebar] = useContext(CartContext);
 
     function toCheckout(){
         history.push('/checkout');

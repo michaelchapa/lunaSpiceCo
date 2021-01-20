@@ -7,13 +7,15 @@ import './Cart.css'
 import { Link } from 'react-router-dom'
 
 function Cart({ history }) {
-    const [cart, setCart] = useContext(CartContext);
+    // eslint-disable-next-line
+    const [cart, setCart, totalPrice, itemCount, cartSummary, 
+           sidebar, setSidebar] = useContext(CartContext);
 
     function decreaseQuantity(productID){
         let updatedCart = [];
 
         for(const item of cart){
-            if(item.id == productID){
+            if(item.id === productID){
                 item.quantity = item.quantity - 1;
                 if(item.quantity < 0)
                     item.quantity = 0;
@@ -30,7 +32,7 @@ function Cart({ history }) {
         let updatedCart = [];
 
         for(const item of cart){
-            if(item.id == productID){
+            if(item.id === productID){
                 item.quantity = item.quantity + 1;
                 updatedCart.push(item);
             } else {
@@ -44,7 +46,7 @@ function Cart({ history }) {
         let updatedCart = [];
 
         for(const item of cart){
-            if(item.id == productID){
+            if(item.id === productID){
                 continue;
             } else {
                 updatedCart.push(item);
@@ -72,12 +74,17 @@ function Cart({ history }) {
         );
     });
 
+    function checkout(){
+        setSidebar();
+        history.push('/checkout');
+    }
     return (
         <div>
             <h1>Cart</h1>
             {cartContents}
-            <span>Total: $ totalPrice</span>
-            <button onClick = {() => history.push('/checkout')}>Checkout</button>
+            <span className = "total-label">Total:</span>
+            <span className = "total-number">${totalPrice}</span>
+            <button onClick = {checkout}>Checkout</button>
         </div>
     );
 }

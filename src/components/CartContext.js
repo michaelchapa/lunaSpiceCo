@@ -8,11 +8,10 @@ export const CartProvider = (props) => {
 
     const showSidebar = () => setSidebar(!sidebar);
 
-    // const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0).toFixed(2);
-    // const itemsInCart = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+    const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0).toFixed(2);
+    const itemCount = cart.reduce((acc, curr) => acc + curr.quantity, 0);
 
-    /*
-    const cartContents = 
+    const cartSummary = 
     <table style = {{margin: "auto"}}>
         <thead>
             <tr>
@@ -31,10 +30,10 @@ export const CartProvider = (props) => {
         })}
         </tbody>
     </table>;
-    */
 
     return (
-        <CartContext.Provider value = {[cart, setCart, sidebar, setSidebar, showSidebar]}>
+        <CartContext.Provider value = {[cart, setCart, totalPrice, itemCount, cartSummary, 
+                                        sidebar, setSidebar, showSidebar]}>
             {props.children}
         </CartContext.Provider>
     )

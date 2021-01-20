@@ -6,7 +6,8 @@ import styles from './Homepage.module.css'
 export default function Homepage() {
     const [inventory] = useContext(InventoryContext);
     // eslint-disable-next-line
-    const [cart, setCart, sidebar, setSidebar, showSidebar] = useContext(CartContext);
+    const [cart, setCart, totalPrice, itemCount, cartSummary, 
+           sidebar, setSidebar, showSidebar] = useContext(CartContext);
 
     function handleAddToCart(e) {
         e.preventDefault();
