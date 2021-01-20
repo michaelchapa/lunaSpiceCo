@@ -29,7 +29,8 @@ function Cart({ history }) {
                 <span className = "item-price">{item.price}</span>
                 <IoMdTrash className = "delete-button" onClick = {() => console.log("DELETE ITEM :)")} />
                 <ImMinus className = "subtract-button" onClick = {decreaseQuantity} />
-                <span className = "item-quantity">{item.quantity}</span>
+                <span className = "item-quanti
+                ty">{item.quantity}</span>
                 <ImPlus className = "add-button" value = {12} onClick = {increaseQuantity} />
             </div>
             
